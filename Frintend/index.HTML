@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Finance Tracker</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>💰 Personal Finance Tracker</h1>
+            <p>Track your income and expenses efficiently</p>
+        </header>
+
+        <!-- Summary Dashboard -->
+        <section class="dashboard">
+            <div class="summary-card income">
+                <h3>Total Income</h3>
+                <p class="amount" id="totalIncome">$0.00</p>
+            </div>
+            <div class="summary-card expense">
+                <h3>Total Expenses</h3>
+                <p class="amount" id="totalExpenses">$0.00</p>
+            </div>
+            <div class="summary-card balance">
+                <h3>Balance</h3>
+                <p class="amount" id="balance">$0.00</p>
+            </div>
+        </section>
+
+        <!-- Charts -->
+        <section class="charts">
+            <div class="chart-container">
+                <h3>Spending by Category</h3>
+                <canvas id="categoryChart"></canvas>
+            </div>
+        </section>
+
+        <!-- Add Transaction Form -->
+        <section class="form-section">
+            <h2>Add Transaction</h2>
+            <form id="transactionForm">
+                <div class="form-group">
+                    <label for="amount">Amount:</label>
+                    <input type="number" id="amount" step="0.01" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="type">Type:</label>
+                    <select id="type" required>
+                        <option value="expense">Expense</option>
+                        <option value="income">Income</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="category">Category:</label>
+                    <select id="category" required></select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="description">Description:</label>
+                    <input type="text" id="description" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="date">Date:</label>
+                    <input type="date" id="date" required>
+                </div>
+                
+                <button type="submit" class="btn-primary">Add Transaction</button>
+            </form>
+        </section>
+
+        <!-- Import/Export -->
+        <section class="import-export">
+            <h2>Import/Export Data</h2>
+            <div class="button-group">
+                <div class="import-section">
+                    <label for="csvFile" class="btn-secondary">Import CSV</label>
+                    <input type="file" id="csvFile" accept=".csv" style="display: none;">
+                </div>
+                <button id="exportBtn" class="btn-secondary">Export to CSV</button>
+            </div>
+        </section>
+
+        <!-- Transactions List -->
+        <section class="transactions-section">
+            <h2>Recent Transactions</h2>
+            <div class="filters">
+                <select id="filterType">
+                    <option value="">All Types</option>
+                    <option value="income">Income</option>
+                    <option value="expense">Expense</option>
+                </select>
+                <button id="applyFilter" class="btn-secondary">Apply Filter</button>
+            </div>
+            <table id="transactionsTable">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Description</th>
+                        <th>Category</th>
+                        <th>Type</th>
+                        <th>Amount</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="transactionsBody"></tbody>
+            </table>
+        </section>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
