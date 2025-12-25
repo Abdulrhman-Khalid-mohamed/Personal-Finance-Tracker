@@ -1,0 +1,71 @@
+#!/bin/bash
+
+echo "🚀 Setting up Personal Finance Tracker..."
+echo ""
+
+# Check if Python is installed
+if ! command -v python3 &> /dev/null; then
+    echo "❌ Python3 is not installed. Please install Python 3.8 or higher."
+    exit 1
+fi
+
+# Check if PostgreSQL is installed
+if ! command -v psql &> /dev/null; then
+    echo "❌ PostgreSQL is not installed. Please install PostgreSQL 12 or higher."
+    exit 1
+fi
+
+echo "✅ Prerequisites check passed"
+echo ""
+
+# Create virtual environment
+echo "📦 Creating virtual environment..."
+cd backend
+python3 -m venv venv
+
+# Activate virtual environment
+echo "🔄 Activating virtual environment..."
+source venv/bin/activate
+
+# Install Python dependencies
+echo "📥 Installing Python dependencies..."
+pip install --upgrade pip
+pip install -r requirements.txt
+
+echo ""
+echo "✅ Backend setup complete!"
+echo ""
+
+# Create necessary directories
+echo "📁 Creating necessary directories..."
+cd ..
+mkdir -p data/exports
+touch data/exports/.gitkeep
+
+echo ""
+echo "🎉 Setup complete!"
+echo ""
+echo "Next steps:"
+echo "1. Set up PostgreSQL database:"
+echo "   sudo -u postgres psql"
+echo "   CREATE DATABASE finance_tracker;"
+echo "   CREATE USER finance_user WITH PASSWORD 'your_password';"
+echo "   GRANT ALL PRIVILEGES ON DATABASE finance_tracker TO finance_user;"
+echo ""
+echo "2. Initialize database schema:"
+echo "   psql -U finance_user -d finance_tracker -f database/schema.sql"
+echo ""
+echo "3. Create .env file in backend/ directory:"
+echo "   DATABASE_URL=postgresql://finance_user:your_password@localhost/finance_tracker"
+echo "   FLASK_ENV=development"
+echo "   SECRET_KEY=your-secret-key-here"
+echo ""
+echo "4. Run the application:"
+echo "   cd backend"
+echo "   source venv/bin/activate"
+echo "   python app.py"
+echo ""
+echo "5. Open frontend/index.html in your browser or run:"
+echo "   cd frontend"
+echo "   python3 -m http.server 8080"
+echo ""
