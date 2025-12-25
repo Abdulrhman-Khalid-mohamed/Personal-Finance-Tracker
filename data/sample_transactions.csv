@@ -1,0 +1,21 @@
+date,amount,type,category,description
+2024-12-01,3500.00,income,Salary,Monthly salary payment
+2024-12-02,150.00,expense,Food & Dining,Grocery shopping at supermarket
+2024-12-03,45.00,expense,Transportation,Gas station fill-up
+2024-12-04,80.00,expense,Utilities,Electricity bill
+2024-12-05,500.00,income,Freelance,Web development project
+2024-12-06,120.00,expense,Entertainment,Movie and dinner
+2024-12-07,200.00,expense,Healthcare,Doctor's visit
+2024-12-08,75.00,expense,Food & Dining,Restaurant dinner
+2024-12-09,30.00,expense,Transportation,Uber ride
+2024-12-10,250.00,expense,Shopping,New shoes and clothes
+2024-12-11,100.00,expense,Food & Dining,Weekly groceries
+2024-12-12,60.00,expense,Utilities,Internet bill
+2024-12-13,40.00,expense,Entertainment,Streaming subscriptions
+2024-12-14,300.00,income,Freelance,Logo design project
+2024-12-15,90.00,expense,Food & Dining,Coffee shop and snacks
+2024-12-16,150.00,expense,Healthcare,Pharmacy medications
+2024-12-17,50.00,expense,Transportation,Public transport pass
+2024-12-18,180.00,expense,Shopping,Electronics accessories
+2024-12-19,70.00,expense,Food & Dining,Lunch with friends
+2024-12-20,100.00,expense,Entertainment,Concert tickets
